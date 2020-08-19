@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Easing example</title>
+    </head>
+    <body>
+        <canvas width=600 height=400 style="background-color: #000"></canvas>
+        <div>
+            <text>StartFrame: </text><input id="sf" value=16><br>
+            <text>Duration: </text><input id="d" value=80><br>
+            <text>StartX: </text><input id="sx" value=50><br>
+            <text>Amount: </text><input id="a" value=128><br>
+            <text>Length: </text><input id="l" value=128><br>
+            <button onclick="upd()">Update</button>
+            <button onclick="ps = ps ? 0 : 1">Pause</button>
+        </div><br>
+        <div id="show"></div><br>
+        <script src="easing.js"></script>
+        <script>
+            const canvas = document.querySelector("canvas");
+            const ctx = canvas.getContext("2d");
+
+            let frame = 0;
+            let ps = 0;
+            const show = {
+                Sine: true,
+                Linear: true,
+                ExponentalIn: true,
+                ExponentalOut: true
+            }
+            const s = {
+                sf: 16,
+                d: 80,
+                sx: 50,
+                a: 128,
+                l: 128
+            }
+
+            function upd() {
+                Array.prototype.slice.call(document.querySelectorAll("input")).forEach(u => {
+                    s[u.getAttribute("id")] = Number(u.value);
+                });
+            }
+
+            Object.keys(show).forEach(k => {
+                const b = document.createElement("button");
+                b.innerHTML = `Show ${k}`;
+                b.setAttribute("onclick", `show["${k}"] = show["${k}"] ? false : true`);
+                document.querySelector("#show").appendChild(b);
+            })
+
+            function draw() {
+                ctx.clearRect(0,0,canvas.width,canvas.height);
+
+                Object.keys(show).forEach((k, i) => {
+                    if (show[k]) {
+                        ctx.fillStyle = "#f00";
+                        ctx.fillRect(window[k](frame, s.sf, s.d, s.sx, s.a), 32 * i + 48, 10, 10);
+                        ctx.fillStyle = "#fff";
+                        ctx.fillText(k, window[k](frame, s.sf, s.d, s.sx, s.a) + 16, 32 * i + 56);
+                    }
+                });
+
+                ctx.fillStyle = "#fff";
+                ctx.fillText(`Frame: ${frame}`, 16, 16);
+                
+                if (!ps) frame < s.l ? frame++ : frame = 0;
+
+                requestAnimationFrame(draw);
+            }
+            draw();
+        </script>
+    </body>
+</html>
