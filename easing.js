@@ -67,6 +67,9 @@ function Exponental(frame, start, duration, startpos, amount, factor) {
 try {
     module.exports = {
         Linear,
-        Sine
+        Sine,
+        ExponentalIn,
+        ExponentalOut,
+        Exponental
     }
 } catch(e) {}
