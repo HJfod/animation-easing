@@ -35,3 +35,11 @@ Linear(currentFrame, startFrame, duration, startPosition, amount);
 ### Example:
 
 Open up `example.html` to view live examples.
+
+### Function equations:
+
+![Linear](https://cdn.discordapp.com/attachments/660797754271989760/745915695316861010/unknown.png)
+![Sine](https://cdn.discordapp.com/attachments/660797754271989760/745915741944938496/unknown.png)
+![ExponentalIn](https://cdn.discordapp.com/attachments/660797754271989760/745915783342981227/unknown.png)
+![ExponentalOut](https://cdn.discordapp.com/attachments/660797754271989760/745915865354076160/unknown.png)
+![Exponental](https://cdn.discordapp.com/attachments/660797754271989760/745915914142220288/unknown.png)
