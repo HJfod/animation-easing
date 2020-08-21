@@ -30,7 +30,7 @@ Linear(currentFrame, startFrame, duration, startPosition, amount);
  * `duration`: The length of the animation.
  * `startPosition`: The initial position of the animated object.
  * `amount`: The amount of movement.
- * `factor`: Controls the intensity of the curve (only for `Exponental`)
+ * `factor`: Controls the intensity of the curve (only for `Exponental`, `ExponentalIn`, `ExponentalOut`)
 
 ### Example:
 

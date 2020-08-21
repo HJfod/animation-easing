@@ -11,7 +11,7 @@
             <text>Duration: </text><input id="d" value=80><br>
             <text>StartX: </text><input id="sx" value=50><br>
             <text>Amount: </text><input id="a" value=128><br>
-            <text>Factor: </text><input id="f" value=3><text>(Must be a whole positive odd number)</text><br>
+            <text>Factor: </text><input id="f" value=3><br>
             <text>Length: </text><input id="l" value=128><br>
             <button onclick="upd()">Update</button>
             <button onclick="ps = ps ? 0 : 1">Pause</button>
@@ -27,8 +27,8 @@
             const obj = {
                 Sine: [],
                 Linear: [],
-                ExponentalIn: [],
-                ExponentalOut: [],
+                ExponentalIn: ["factor"],
+                ExponentalOut: ["factor"],
                 Exponental: ["factor"]
             }
             const show = {}
